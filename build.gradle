@@ -12,6 +12,9 @@ repositories {
     mavenCentral()
 }
 
+task stage {
+  dependsOn build
+}
 
 dependencies {
 
