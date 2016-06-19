@@ -16,7 +16,7 @@ repositories {
     mavenCentral()
 }
 
-task stage(dependsOn: ["clean", "war", "copyToLib"])
+task stage(dependsOn: ["build", "copyToLib"])
 
 
 task copyToLib << {
@@ -39,6 +39,6 @@ testCompile 'junit:junit:4.10'
 compile 'org.springframework:spring-webmvc:4.1.6.RELEASE'
 compile group: 'javax.servlet.jsp', name: 'javax.servlet.jsp-api', version: '2.3.1'
 compile group: 'jstl', name: 'jstl', version: '1.2'
-runtimeOnly 'com.github.jsimone:8.0.33.0'
+runtimeOnly group: 'com.github.jsimone', name: 'webapp-runner', version: '8.0.33.0'
 
 }
