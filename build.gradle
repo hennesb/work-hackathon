@@ -3,6 +3,10 @@ apply plugin: 'java'
 apply from: 'https://raw.github.com/akhikhl/gretty/master/pluginScripts/gretty.plugin'
 
 
+configurations {
+  runtimeOnly
+}
+
 gretty {
   servletContainer = 'tomcat8'
   httpsEnabled = true
@@ -12,9 +16,21 @@ repositories {
     mavenCentral()
 }
 
-task stage {
-  dependsOn build
+task stage(dependsOn: ["clean", "war", "copyToLib"])
+
+
+task copyToLib << {
+  copy {
+    from configurations.runtimeOnly.copy().setTransitive(false)
+    into "$buildDir/libs"
+    rename { name ->
+      def artifacts = configurations.runtimeOnly.resolvedConfiguration.resolvedArtifacts
+      def artifact = artifacts.find { it.file.name == name }
+      "${artifact.name}.${artifact.extension}"
+    }
+  }
 }
+
 
 dependencies {
 
@@ -23,5 +39,6 @@ testCompile 'junit:junit:4.10'
 compile 'org.springframework:spring-webmvc:4.1.6.RELEASE'
 compile group: 'javax.servlet.jsp', name: 'javax.servlet.jsp-api', version: '2.3.1'
 compile group: 'jstl', name: 'jstl', version: '1.2'
+runtimeOnly 'com.github.jsimone:8.0.33.0'
 
 }
