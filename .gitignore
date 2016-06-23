@@ -23,4 +23,8 @@ out
 *.iws
 .DS_Store
 target/
+.project
+.settings
+.classpath
+bin/
 
