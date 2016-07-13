@@ -32,7 +32,7 @@ import ie.components.configuration.AppConfiguration;
 @RunWith(SpringRunner.class)
 @WebAppConfiguration
 @ContextHierarchy({
-	@ContextConfiguration(classes = AppConfiguration.class)
+@ContextConfiguration(classes = AppConfiguration.class)
 })
 public class HomeControllerTest {
 	
