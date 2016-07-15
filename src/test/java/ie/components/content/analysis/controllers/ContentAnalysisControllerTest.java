@@ -24,7 +24,7 @@ import ie.components.configuration.AppConfiguration;
 import ie.components.home.controllers.HomeController;
 
 /**
- * @author ashish
+ * @author Ashish
  *
  */
 @Ignore
@@ -69,6 +69,7 @@ public class ContentAnalysisControllerTest {
 	public void tearDown() throws Exception {
 	}
 
+	//testing for get method
 	@Ignore
 	@Test
 	public void testingthepage() throws Exception {
