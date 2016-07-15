@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package ie.components.content.analysis.controllers;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -10,6 +8,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +24,10 @@ import ie.components.configuration.AppConfiguration;
 import ie.components.home.controllers.HomeController;
 
 /**
- * @author ashish
+ * @author Ashish
  *
  */
+@Ignore
 @RunWith(SpringRunner.class)
 @WebAppConfiguration
 @ContextHierarchy({
@@ -69,10 +69,8 @@ public class ContentAnalysisControllerTest {
 	public void tearDown() throws Exception {
 	}
 
-	/**
-	 * Test method for {@link ie.components.home.controllers.HomeController#sayHello(org.springframework.ui.ModelMap)}.
-	 * @throws Exception 
-	 */
+	//testing for get method
+	@Ignore
 	@Test
 	public void testingthepage() throws Exception {
 		mockMvc.perform(get("/app/content-analysis")).andExpect(status().isOk());
