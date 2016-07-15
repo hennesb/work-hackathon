@@ -75,7 +75,7 @@ public class ContentAnalysisControllerTest {
 	 */
 	@Test
 	public void testingthepage() throws Exception {
-		mockMvc.perform(get("/")).andExpect(status().isOk());
+		mockMvc.perform(get("/app/content-analysis")).andExpect(status().isOk());
 	}
 
 }
