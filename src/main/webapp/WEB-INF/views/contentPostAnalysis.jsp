@@ -1,6 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>   
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <style>
@@ -60,13 +58,12 @@ article {
 <article>
   <h1>Welcome to Dublin</h1>
 </article>
-
-<h2>Details: </h2>
-<form action="#" th:action="@{/app/content-post-analysis}" th:object="${contentAnalysis}" method="post">
-    	<p>Fname: <input type="text" th:field="*{fname}" /></p>
-        <p>Lname: <input type="text" th:field="*{lname}" /></p>
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-    </form>
+<h2>Result: </h2>
+<p th:text="'fname: ' + ${contentAnalysis.fname}" />
+<p>${contentAnalysis.fname}</p>
+    <p>${contentAnalysis.lname}</p>
+    <p>"${contentAnalysis.fname}"</p>
+    <p>"${contentAnalysis.lname}"</p>
 <footer>Whats Up!</footer>
 
 </div>
