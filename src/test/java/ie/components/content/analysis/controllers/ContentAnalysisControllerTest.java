@@ -3,6 +3,7 @@ package ie.components.content.analysis.controllers;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import junit.framework.Assert;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -25,7 +26,6 @@ import ie.components.configuration.AppConfiguration;
  * @author Ashish
  *
  */
-@Ignore
 @RunWith(SpringRunner.class)
 @WebAppConfiguration
 @ContextHierarchy({
@@ -73,4 +73,8 @@ public class ContentAnalysisControllerTest {
 		mockMvc.perform(get("/app/content-analysis")).andExpect(status().isOk());
 	}
 
+	@Test
+	public void testingthepospage() throws Exception {
+		mockMvc.perform(post("/app/content-analysis")).andExpect(status().isOk());
+	}
 }
