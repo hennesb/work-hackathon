@@ -58,12 +58,8 @@ article {
 <article>
   <h1>Welcome to Dublin</h1>
 </article>
-<h2>Result: </h2>
-<p th:text="'fname: ' + ${contentAnalysis.fname}" />
-<p>${contentAnalysis.fname}</p>
-    <p>${contentAnalysis.lname}</p>
-    <p>"${contentAnalysis.fname}"</p>
-    <p>"${contentAnalysis.lname}"</p>
+<h2>Whats up: <p>${fname} ${lname}</p></h2>
+    
 <footer>Whats Up!</footer>
 
 </div>

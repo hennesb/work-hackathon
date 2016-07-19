@@ -13,14 +13,15 @@ import org.springframework.web.servlet.ModelAndView;
 public class ContentAnalysisController{
 	
 	@RequestMapping(value = {"/app/content-analysis"}, method = RequestMethod.GET)
-	public String contentAnalysis(Model model){
-		model.addAttribute("contentAnalysis", new PostAnalysis());
-		return "contentAnalysis";
+	public ModelAndView contentAnalysis(){
+		return new ModelAndView("contentAnalysis", "analysis", new PostAnalysis());
+		
 	}
 	
-	@RequestMapping(value ={"/app/content-analysis"}, method = RequestMethod.POST)
-	public String contentPostAnalysis(@ModelAttribute PostAnalysis contentAnalysis, Model model){
-		model.addAttribute("contentAnalysis", contentAnalysis);
+	@RequestMapping(value ={"/app/content-post-analysis"}, method = RequestMethod.POST)
+	public String contentPostAnalysis(@ModelAttribute("analysis") PostAnalysis analysis, Model model){
+		model.addAttribute("fname", analysis.getFname());
+		model.addAttribute("lname", analysis.getLname());
 		return "contentPostAnalysis";		
 	}
 }
