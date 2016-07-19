@@ -38,6 +38,8 @@ public class ContentAnalysisControllerTest {
     private WebApplicationContext wac;
 
     private MockMvc mockMvc;
+    
+    
 
 	/**
 	 * @throws java.lang.Exception
@@ -72,9 +74,14 @@ public class ContentAnalysisControllerTest {
 	public void perform_get_http_request() throws Exception {
 		mockMvc.perform(get("/app/content-analysis")).andExpect(status().isOk());
 	}
-
+	
 	@Test
 	public void testingthepospage() throws Exception {
-		mockMvc.perform(post("/app/content-analysis")).andExpect(status().isOk());
+		String fname = "xyzss";
+		String lname = "msmsmmsms";
+		mockMvc.perform(post("/app/content-post-analysis")
+				.param("fname", fname)
+				.param("lname", lname))
+				.andExpect(status().isOk());
 	}
 }

@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>   
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -61,12 +59,29 @@ article {
   <h1>Welcome to Dublin</h1>
 </article>
 
-<h2>Details: </h2>
-<form action="#" th:action="@{/app/content-post-analysis}" th:object="${contentAnalysis}" method="post">
-    	<p>Fname: <input type="text" th:field="*{fname}" /></p>
-        <p>Lname: <input type="text" th:field="*{lname}" /></p>
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-    </form>
+<h2>Please Enter Your Details: </h2>
+<form:form method="POST" action="/work-hackathon/app/content-post-analysis" modelAttribute="analysis">
+   <table>
+    <tr>
+        <td><form:label path="fname">Fname</form:label></td>
+        <td><form:input path="fname" /></td>
+    </tr>
+    <tr>
+        <td><form:label path="lname">Lname</form:label></td>
+        <td><form:input path="lname" /></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input type="submit" value="Submit"/>
+        </td>
+    </tr>
+</table>  
+</form:form>
+<%-- <form action="#" th:action="@{/app/content-post-analysis}" th:object="${contentAnalysis}" method="post"> --%>
+<!--     	<p>Fname: <input type="text" th:field="*{fname}" /></p> -->
+<!--         <p>Lname: <input type="text" th:field="*{lname}" /></p> -->
+<!--         <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p> -->
+<%--     </form> --%>
 <footer>Whats Up!</footer>
 
 </div>
