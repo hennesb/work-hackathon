@@ -13,6 +13,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.ContextHierarchy;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -20,10 +21,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-
 import ie.components.configuration.AppConfiguration;
-import ie.components.home.controllers.HomeController;
-
 /**
  * @author Ashish
  *
@@ -33,6 +31,7 @@ import ie.components.home.controllers.HomeController;
 @ContextHierarchy({
 	@ContextConfiguration(classes = AppConfiguration.class)
 })
+@ActiveProfiles("development")
 public class ContentAnalysisControllerTest {
 	
 	@Autowired
@@ -71,9 +70,8 @@ public class ContentAnalysisControllerTest {
 	public void tearDown() throws Exception {
 	}
 
-	//testing for get method
 	@Test
-	public void testingthepage() throws Exception {
+	public void perform_get_http_request() throws Exception {
 		mockMvc.perform(get("/app/content-analysis")).andExpect(status().isOk());
 	}
 	
