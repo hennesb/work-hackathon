@@ -1,1 +1,1 @@
-web:    java $JAVA_OPTS -jar build/libs/webapp-runner.jar --port $PORT build/libs/*.war
+web:    java $JAVA_OPTS -Dspring.profiles.active=development -jar build/libs/webapp-runner.jar --port $PORT build/libs/*.war

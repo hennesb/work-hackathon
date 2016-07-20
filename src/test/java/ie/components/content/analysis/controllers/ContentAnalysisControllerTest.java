@@ -1,12 +1,9 @@
-/**
- * 
- */
-package ie.components.home.controllers;
+
+package ie.components.content.analysis.controllers;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
-
+import junit.framework.Assert;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -24,25 +21,25 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-
 import ie.components.configuration.AppConfiguration;
-
 /**
- * @author hennesb
+ * @author Ashish
  *
  */
 @RunWith(SpringRunner.class)
 @WebAppConfiguration
 @ContextHierarchy({
-@ContextConfiguration(classes = AppConfiguration.class)
+	@ContextConfiguration(classes = AppConfiguration.class)
 })
 @ActiveProfiles("development")
-public class HomeControllerTest {
+public class ContentAnalysisControllerTest {
 	
 	@Autowired
     private WebApplicationContext wac;
 
     private MockMvc mockMvc;
+    
+    
 
 	/**
 	 * @throws java.lang.Exception
@@ -73,13 +70,18 @@ public class HomeControllerTest {
 	public void tearDown() throws Exception {
 	}
 
-	/**
-	 * Test method for {@link ie.components.home.controllers.HomeController#sayHello(org.springframework.ui.ModelMap)}.
-	 * @throws Exception 
-	 */
 	@Test
-	public void testSayHello() throws Exception {
-		mockMvc.perform(get("/")).andExpect(status().isOk());
+	public void perform_get_http_request() throws Exception {
+		mockMvc.perform(get("/app/content-analysis")).andExpect(status().isOk());
 	}
-
+	
+	@Test
+	public void testingthepospage() throws Exception {
+		String fname = "xyzss";
+		String lname = "msmsmmsms";
+		mockMvc.perform(post("/app/content-post-analysis")
+				.param("fname", fname)
+				.param("lname", lname))
+				.andExpect(status().isOk());
+	}
 }
