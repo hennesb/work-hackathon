@@ -3,4 +3,19 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
 		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+         
+ <servlet>
+  <servlet-name>ff4j-console</servlet-name>
+  <servlet-class>org.ff4j.web.embedded.ConsoleServlet</servlet-class>
+  <init-param>
+   <param-name>ff4jProvider</param-name>
+   <param-value>ie.feature.store.MyFF4jProvider</param-value>
+  </init-param>
+  <load-on-startup>1</load-on-startup>
+ </servlet>
+ 
+ <servlet-mapping>
+   <servlet-name>ff4j-console</servlet-name>
+   <url-pattern>/ff4j-console</url-pattern>
+  </servlet-mapping>
 </web-app>
