@@ -60,7 +60,7 @@ article {
 </article>
 
 <h2>Please Enter Your Details: </h2>
-<form:form method="POST" action="/work-hackathon/app/content-post-analysis" modelAttribute="analysis">
+<form:form method="POST" action="${pageContext.request.contextPath}/app/content-post-analysis" modelAttribute="analysis">
    <table>
     <tr>
         <td><form:label path="fname">Fname</form:label></td>
