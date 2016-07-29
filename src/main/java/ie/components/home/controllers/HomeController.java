@@ -1,6 +1,7 @@
 package ie.components.home.controllers;
  
 import org.ff4j.core.Feature;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -19,7 +20,7 @@ public class HomeController {
 	@Autowired
 	private DataAccessLayer dao;
 	
- 
+
     public void setDao(DataAccessLayer dao) {
 		this.dao = dao;
 	}
@@ -32,7 +33,7 @@ public class HomeController {
     }
 	
 	private String getFeatureName(){
-	    Feature feature = dao.getJdbcTemplate().queryForObject(SQL, new FeatureRowMapper(), new Object[]{"1a"})	;
+	    Feature feature = dao.getJdbcTemplate().queryForObject(SQL, new FeatureRowMapper(), new Object[]{"trunk_based_is_agile_feature"})	;
 	    return feature.getDescription();
 	}
 

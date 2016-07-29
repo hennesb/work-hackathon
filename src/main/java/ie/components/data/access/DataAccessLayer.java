@@ -15,6 +15,10 @@ public class DataAccessLayer {
 		this.dataStore = dataStore;
 	}
 
+	public DataStore getDataStore() {
+		return dataStore;
+	}
+
 	@Bean
 	public JdbcTemplate getJdbcTemplate() {
 		return new JdbcTemplate(dataStore.dataSource());

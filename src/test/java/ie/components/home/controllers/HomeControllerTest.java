@@ -6,10 +6,12 @@ package ie.components.home.controllers;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
@@ -80,6 +82,14 @@ public class HomeControllerTest {
 	@Test
 	public void testSayHello() throws Exception {
 		mockMvc.perform(get("/")).andExpect(status().isOk());
+	}
+	
+	@Ignore
+	@Test
+	public void dateCheck(){
+		GregorianCalendar now = new GregorianCalendar();
+		Assert.assertEquals(now.get(Calendar.MONTH), 6);
+		
 	}
 
 }
