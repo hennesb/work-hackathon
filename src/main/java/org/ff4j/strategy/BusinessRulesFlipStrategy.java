@@ -10,7 +10,6 @@ public class BusinessRulesFlipStrategy implements FlippingStrategy {
 
 	@Override
 	public boolean evaluate(String arg0, FeatureStore arg1, FlippingExecutionContext arg2) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

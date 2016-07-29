@@ -33,7 +33,7 @@ public class HomeController {
     }
 	
 	private String getFeatureName(){
-	    Feature feature = dao.getJdbcTemplate().queryForObject(SQL, new FeatureRowMapper(), new Object[]{"trunk_based_is_agile_feature"})	;
+	    Feature feature = dao.getJdbcTemplate().queryForObject(SQL, new FeatureRowMapper(), new Object[]{"conditional-check"})	;
 	    return feature.getDescription();
 	}
 
