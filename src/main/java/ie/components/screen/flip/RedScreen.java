@@ -10,4 +10,9 @@ public class RedScreen implements ScreenColor {
 		return "red";
 	}
 
+	@Override
+	public String getScreenColorDescription() {
+		return "The screen is red";
+	}
+
 }

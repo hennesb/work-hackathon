@@ -10,7 +10,7 @@ configurations {
 gretty {
   servletContainer = 'tomcat8'
   httpsEnabled = true
-  jvmArgs = ['-Dspring.profiles.active=development']
+  jvmArgs = ['-Dspring.profiles.active=live']
   httpPort = 9081
   httpsPort = 9043
 }

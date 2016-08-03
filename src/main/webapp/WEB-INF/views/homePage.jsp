@@ -9,14 +9,9 @@
 </head>
 <body>
 
-<c:if test="${ featureEnabled }">
-   <h1 style="color:green;">Feature is ENABLED</h1>
-</c:if>
-    
-<c:if test="${ !featureEnabled }">
-<h1 style="color:red;">  Feature is DISABLED</h1>
- 
-</c:if>
+
+<h1 style="${ textColourfeatureEnabled }">  This is the demo of vhi feature toggles </h1>
+
 
 </body>
 </html>

@@ -27,18 +27,28 @@ public class FeatureFlipController {
 	@Qualifier("ltd")
 	private RegulationMessage messageProducer;
 	
+	private static final String RED_COLOUR_STYLE = "color:red;";
+	private static final String GREEN_COLOUR_STYLE = "color:green;";
 	
+	private String colourWhenToggled(boolean enabled){
+		if (enabled){
+			return GREEN_COLOUR_STYLE;
+		}else{
+			return RED_COLOUR_STYLE;
+		}
+		
+	}
 
 	@RequestMapping(method = RequestMethod.GET , path="/flip-home")
     public String flipHomePage(ModelMap model) {
-        model.addAttribute("featureEnabled", flipProvider.getFF4j().getFeature("conditional-check").isEnable());
+        model.addAttribute("textColourfeatureEnabled", colourWhenToggled(flipProvider.getFF4j().getFeature("conditional-check").isEnable()));
         return "homePage";
     }
 	
 	@RequestMapping(method = RequestMethod.GET, path="/screen-color")
 	public String screenColour(Model model){
-		String color = screenColor.getScreenColor();
-		model.addAttribute("screencolor", color);
+		model.addAttribute("screencolor", screenColor.getScreenColor());
+		model.addAttribute("screenDescription", screenColor.getScreenColorDescription());
 		return "screenColorPage";
 	}
 
