@@ -9,6 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import ie.components.screen.flip.PersonalizationImage;
 import ie.components.screen.flip.RegulationMessage;
 import ie.components.screen.flip.ScreenColor;
 
@@ -26,6 +27,10 @@ public class FeatureFlipController {
 	@Autowired
 	@Qualifier("ltd")
 	private RegulationMessage messageProducer;
+	
+	@Autowired
+	@Qualifier("jpeg.image")
+	private PersonalizationImage image;
 	
 	private static final String RED_COLOUR_STYLE = "color:red;";
 	private static final String GREEN_COLOUR_STYLE = "color:green;";
@@ -59,5 +64,11 @@ public class FeatureFlipController {
 		model.addAttribute("message", message);
 		return "regulation";
 	}
+	
+	@RequestMapping(method = RequestMethod.GET, path="/personalization")
+	public String getPersonalizationImage(Model model){
+		model.addAttribute("image", image.imageLocation());
+		return "image";
+	}	
 	
 }

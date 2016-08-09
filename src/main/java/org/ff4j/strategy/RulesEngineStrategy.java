@@ -25,6 +25,7 @@ import org.ff4j.core.FeatureStore;
 import org.ff4j.core.FlippingExecutionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import ie.components.rules.engine.BlazeRulesEngine;
 import ie.components.rules.engine.RulesEngine;
 import ie.components.rules.engine.RulesInput;
 import ie.components.rules.engine.RulesOutput;
@@ -34,7 +35,6 @@ public class RulesEngineStrategy extends AbstractFlipStrategy {
 	private static final String RULENAME = "rule";
 	private String theRule;
 	
-	@Autowired
 	private RulesEngine<RulesInput, RulesOutput> engine;
 	
 	
@@ -42,6 +42,14 @@ public class RulesEngineStrategy extends AbstractFlipStrategy {
 		
 	}
 	
+	public RulesEngine<RulesInput, RulesOutput> getEngine() {
+		return engine;
+	}
+
+	public void setEngine(RulesEngine<RulesInput, RulesOutput> engine) {
+		this.engine = engine;
+	}
+
 	public RulesEngineStrategy(String rule){
 		this.setTheRule(rule);
 		getInitParams().put(RULENAME, this.getTheRule());
@@ -63,7 +71,10 @@ public class RulesEngineStrategy extends AbstractFlipStrategy {
 
 	@Override
 	public boolean evaluate(String featureName, FeatureStore store, FlippingExecutionContext executionContext) {
-		return engine.decision(new RulesInput("abc", "def")).defaultDecision();
+		engine = new BlazeRulesEngine();
+		RulesOutput out = engine.decision(new RulesInput(this.getTheRule(), "hennesb"));
+		System.out.println("Rule name is " + this.getTheRule());
+		return out.isMatch();
 	}
 
 }
