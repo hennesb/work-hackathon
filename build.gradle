@@ -10,7 +10,7 @@ configurations {
 gretty {
   servletContainer = 'tomcat8'
   httpsEnabled = true
-  jvmArgs = ['-Dspring.profiles.active=live']
+  jvmArgs = ['-Dspring.profiles.active=development']
   httpPort = 9081
   httpsPort = 9043
 }
@@ -48,6 +48,7 @@ compile group: 'jstl', name: 'jstl', version: '1.2'
 compile group: 'org.hsqldb', name: 'hsqldb', version: '2.3.4'
 compile group: 'org.springframework', name: 'spring-jdbc', version: '4.3.1.RELEASE'
 compile group: 'org.apache.commons', name: 'commons-dbcp2', version: '2.1.1'
+compile group: 'com.mashape.unirest', name: 'unirest-java', version: '1.4.9'
 testCompile 'junit:junit:4.12'
 testCompile group: 'org.springframework', name: 'spring-test', version: '4.3.0.RELEASE'
 runtimeOnly group: 'com.github.jsimone', name: 'webapp-runner', version: '8.0.33.0'

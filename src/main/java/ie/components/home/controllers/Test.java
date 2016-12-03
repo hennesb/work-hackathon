@@ -1,13 +1,16 @@
 package ie.components.home.controllers;
- 
 
- 
+/**
+ * 
+ * @author hennesb
+ *
+ */
 public class Test {
- 
-   
-    public void testHello() {
-       
-    }
 
- 
+	/**
+	 * @author hennesb
+	 */
+	public void testHello() {
+	}
+
 }

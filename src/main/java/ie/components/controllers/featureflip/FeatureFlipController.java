@@ -13,62 +13,61 @@ import ie.components.screen.flip.PersonalizationImage;
 import ie.components.screen.flip.RegulationMessage;
 import ie.components.screen.flip.ScreenColor;
 
-
 @Controller
 public class FeatureFlipController {
 	
 	@Autowired
 	private FF4JProvider flipProvider;
-	
+
 	@Autowired
 	@Qualifier("red.screen")
 	private ScreenColor screenColor;
-	
+
 	@Autowired
 	@Qualifier("ltd")
 	private RegulationMessage messageProducer;
-	
+
 	@Autowired
 	@Qualifier("jpeg.image")
 	private PersonalizationImage image;
-	
+
 	private static final String RED_COLOUR_STYLE = "color:red;";
 	private static final String GREEN_COLOUR_STYLE = "color:green;";
-	
-	private String colourWhenToggled(boolean enabled){
-		if (enabled){
+
+	private String colourWhenToggled(boolean enabled) {
+		if (enabled) {
 			return GREEN_COLOUR_STYLE;
-		}else{
+		} else {
 			return RED_COLOUR_STYLE;
 		}
-		
+
 	}
 
-	@RequestMapping(method = RequestMethod.GET , path="/flip-home")
-    public String flipHomePage(ModelMap model) {
-        model.addAttribute("textColourfeatureEnabled", colourWhenToggled(flipProvider.getFF4j().getFeature("conditional-check").isEnable()));
-        return "homePage";
-    }
-	
-	@RequestMapping(method = RequestMethod.GET, path="/screen-color")
-	public String screenColour(Model model){
+	@RequestMapping(method = RequestMethod.GET, path = "/flip-home")
+	public String flipHomePage(ModelMap model) {
+		model.addAttribute("textColourfeatureEnabled",
+				colourWhenToggled(flipProvider.getFF4j().getFeature("conditional-check").isEnable()));
+		return "homePage";
+	}
+
+	@RequestMapping(method = RequestMethod.GET, path = "/screen-color")
+	public String screenColour(Model model) {
 		model.addAttribute("screencolor", screenColor.getScreenColor());
 		model.addAttribute("screenDescription", screenColor.getScreenColorDescription());
 		return "screenColorPage";
 	}
 
-	
-	@RequestMapping(method = RequestMethod.GET, path="/regulation-message")
-	public String getRegulationMessage(Model model){
+	@RequestMapping(method = RequestMethod.GET, path = "/regulation-message")
+	public String getRegulationMessage(Model model) {
 		String message = messageProducer.getRegulatedMessage();
 		model.addAttribute("message", message);
 		return "regulation";
 	}
-	
-	@RequestMapping(method = RequestMethod.GET, path="/personalization")
-	public String getPersonalizationImage(Model model){
+
+	@RequestMapping(method = RequestMethod.GET, path = "/personalization")
+	public String getPersonalizationImage(Model model) {
 		model.addAttribute("image", image.imageLocation());
 		return "image";
-	}	
-	
+	}
+
 }
