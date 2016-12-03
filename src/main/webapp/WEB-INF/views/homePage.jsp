@@ -228,13 +228,13 @@ img.videotemplate-d {
 					</div>
 					<div class="panel-body">Special offer </div>
 
- <img sizes="(max-width: 837px) 70vw, 586px" srcset="/work-hackathon/images/fertility_gtufuy_dpwaqs_ar_4_3,c_fill,g_auto__c_scale,w_200.jpg 200w,
-/work-hackathon/images/fertility_gtufuy_dpwaqs_ar_4_3,c_fill,g_auto__c_scale,w_323.jpg 323w,
-/work-hackathon/images/fertility_gtufuy_dpwaqs_ar_4_3,c_fill,g_auto__c_scale,w_418.jpg 418w,
-/work-hackathon/images/fertility_gtufuy_dpwaqs_ar_4_3,c_fill,g_auto__c_scale,w_498.jpg 498w,
-/work-hackathon/images/fertility_gtufuy_dpwaqs_ar_4_3,c_fill,g_auto__c_scale,w_571.jpg 571w,
-/work-hackathon/images/fertility_gtufuy_dpwaqs_ar_4_3,c_fill,g_auto__c_scale,w_586.jpg 586w"
-src="/images/fertility_gtufuy_dpwaqs_ar_4_3,c_fill,g_auto__c_scale,w_586.jpg"
+ <img sizes="(max-width: 837px) 70vw, 586px" srcset="${pageContext.request.contextPath}/images/fertility_gtufuy_dpwaqs_ar_4_3,c_fill,g_auto__c_scale,w_200.jpg 200w,
+${pageContext.request.contextPath}/images/fertility_gtufuy_dpwaqs_ar_4_3,c_fill,g_auto__c_scale,w_323.jpg 323w,
+${pageContext.request.contextPath}/images/fertility_gtufuy_dpwaqs_ar_4_3,c_fill,g_auto__c_scale,w_418.jpg 418w,
+${pageContext.request.contextPath}/images/fertility_gtufuy_dpwaqs_ar_4_3,c_fill,g_auto__c_scale,w_498.jpg 498w,
+${pageContext.request.contextPath}/images/fertility_gtufuy_dpwaqs_ar_4_3,c_fill,g_auto__c_scale,w_571.jpg 571w,
+${pageContext.request.contextPath}/images/fertility_gtufuy_dpwaqs_ar_4_3,c_fill,g_auto__c_scale,w_586.jpg 586w"
+src="${pageContext.request.contextPath}/images/fertility_gtufuy_dpwaqs_ar_4_3,c_fill,g_auto__c_scale,w_586.jpg"
 alt="Fertility Images" class="img-responsive">  
 
 
