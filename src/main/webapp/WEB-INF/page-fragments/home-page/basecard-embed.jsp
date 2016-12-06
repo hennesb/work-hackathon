@@ -20,10 +20,9 @@
 				<p class="list-group-item-text">Lorem ipsum dolor sit amet,
 					consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
 					labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-					nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate
-					velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-					occaecat cupidatat non proident Excepteur sint occaecat</p>
+					nostrud exercitation ullamco laboris nisi ut.Ut enim ad minim veniam, quis
+					nostrud exercitation ullamco laboris nisi utUt enim ad minim veniam, quis
+					nostrud exercitation ullamco laboris nisi ut</p>
 			</div>
 			<div class="list-group-item"></div>
 			<div class="panel-footer">

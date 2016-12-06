@@ -25,6 +25,6 @@ public class AppConfiguration extends WebMvcConfigurerAdapter{
  
     @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/images/**").addResourceLocations("/resources/images/");
+        registry.addResourceHandler("/images/**").addResourceLocations("/resources/images/").setCachePeriod(3000000);
     }
 }
