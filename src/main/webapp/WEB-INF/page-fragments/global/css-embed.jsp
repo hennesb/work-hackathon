@@ -9,4 +9,3 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/css/bootcards-desktop.min.css">
 
-<script src="https://use.fontawesome.com/073982fe32.js"></script>
