@@ -1,6 +1,6 @@
 # work-hackathon
 
-The app
+This application is used as a work training tool. The aim is to use some new technology, play with it and deploy it to the cloud. Enjoy.
 ==========================
 * Github distributed source control system
 * Spring application 
