@@ -10,12 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import org.ff4j.core.Feature;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.togglz.spring.proxy.FeatureProxyFactoryBean;
 
 import ie.components.data.access.DataAccessLayer;
+
+import ie.components.togglz.polymorphic.example.ScreenSelector;
+import ie.components.togglz.polymorphic.example.ScreenToggleSelector;
 import ie.data.access.row.mappers.FeatureRowMapper;
  
 @Controller
@@ -25,8 +30,8 @@ public class HomeController {
 	private static Charset utf8charset = Charset.forName("UTF-8");
 	private static Charset win1252charset = Charset.forName("Windows-1252");
 
-	
-
+	@Autowired
+    private ScreenToggleSelector selector;
 
 	
 	private static final String SQL = "select * from ff4j_features where feat_uid = ?";
@@ -39,9 +44,10 @@ public class HomeController {
 		this.dao = dao;
 	}
 
-
+    
+    
 	@RequestMapping(method = RequestMethod.GET)
-    public String sayHello(HttpServletRequest request,ModelMap model) throws UnsupportedEncodingException {
+    public String sayHello(HttpServletRequest request,ModelMap model) throws Exception {
         model.addAttribute("greeting", getFeatureName());
         model.addAttribute("assented","á");
         model.addAttribute("pound", "£");
@@ -57,6 +63,7 @@ public class HomeController {
         //model.addAttribute("converted",new String(asUTF8.getBytes(), "Windows-1252"));
         model.addAttribute("converted",request.getParameter("x"));
         model.addAttribute("theEncoding" , Charset.defaultCharset());
+        model.addAttribute("togglz", selector.getScreenSelector().getViewName());
         return "homePage";
     }
 	

@@ -14,7 +14,8 @@
 	charEncoding="UTF-8" />
 
 <body>
-
+    <c:out value="${ togglz }"/>
+    
 	<div class="container-fluid">
 
 		<div class="row">

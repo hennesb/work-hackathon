@@ -1,9 +1,6 @@
 package ie.components.togglz.configuration;
 
 import java.io.File;
-
-import javax.enterprise.context.ApplicationScoped;
-
 import org.springframework.stereotype.Component;
 import org.togglz.core.Feature;
 import org.togglz.core.manager.TogglzConfig;
@@ -12,7 +9,8 @@ import org.togglz.core.repository.file.FileBasedStateRepository;
 import org.togglz.core.user.FeatureUser;
 import org.togglz.core.user.SimpleFeatureUser;
 import org.togglz.core.user.UserProvider;
-import org.togglz.servlet.user.ServletUserProvider;
+import org.togglz.spring.security.SpringSecurityUserProvider;
+
 import ie.poc.togglz.*;
 
 
@@ -29,12 +27,19 @@ public class TogglesConfig implements TogglzConfig {
 
     @Override
     public UserProvider getUserProvider() {
-        return new UserProvider() {
-            @Override
-            public FeatureUser getCurrentUser() {
-                return new SimpleFeatureUser("admin", true);
-            }
-        };
+    	return logonNoAuth();
+    	//return new SpringSecurityUserProvider("ADMIN_AUTHORITY");
+
+    }
+    
+    
+    private UserProvider logonNoAuth(){
+    	return new UserProvider() {
+        @Override
+        public FeatureUser getCurrentUser() {
+            return new SimpleFeatureUser("admin", true);
+         }
+       };  
     }
 
 }

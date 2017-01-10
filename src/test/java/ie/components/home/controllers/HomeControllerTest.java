@@ -80,6 +80,7 @@ public class HomeControllerTest {
 	 * @throws Exception 
 	 */
 	@Test
+	@Ignore
 	public void testSayHello() throws Exception {
 		mockMvc.perform(get("/")).andExpect(status().isOk());
 	}

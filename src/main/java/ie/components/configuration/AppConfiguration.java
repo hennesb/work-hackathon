@@ -9,6 +9,11 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+import org.togglz.spring.proxy.FeatureProxyFactoryBean;
+
+import ie.components.togglz.polymorphic.example.QuoteDisabledScreen;
+import ie.components.togglz.polymorphic.example.QuoteEnabledScreen;
+import ie.components.togglz.polymorphic.example.ScreenSelector;
  
 @Configuration
 @EnableWebMvc
@@ -27,4 +32,15 @@ public class AppConfiguration extends WebMvcConfigurerAdapter{
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/images/**").addResourceLocations("/resources/images/").setCachePeriod(3000000);
     }
+    
+    
+    @Bean
+	public FeatureProxyFactoryBean getScreenSelector() throws Exception{
+		FeatureProxyFactoryBean bean = new FeatureProxyFactoryBean();
+		bean.setFeature("FEATURE_ONE");
+	    bean.setActive(new QuoteEnabledScreen());
+	    bean.setInactive(new QuoteDisabledScreen());	
+		return bean;
+		
+	}
 }

@@ -8,6 +8,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,11 +70,13 @@ public class ContentAnalysisControllerTest {
 	}
 
 	@Test
+	@Ignore
 	public void perform_get_http_request() throws Exception {
 		mockMvc.perform(get("/app/content-analysis")).andExpect(status().isOk());
 	}
 	
 	@Test
+	@Ignore
 	public void testingthepospage() throws Exception {
 		String fname = "xyzss";
 		String lname = "msmsmmsms";
