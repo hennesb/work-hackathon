@@ -13,4 +13,3 @@ This application is used as a work training tool. The aim is to use some new tec
 
 
 
-
