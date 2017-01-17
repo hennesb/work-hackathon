@@ -17,21 +17,13 @@ import org.togglz.spring.proxy.FeatureProxyFactoryBean;
 import ie.components.togglz.polymorphic.example.QuoteDisabledScreen;
 import ie.components.togglz.polymorphic.example.QuoteEnabledScreen;
 
+import static ie.components.configuration.AbstractApplicationResourcesConfig.*;
+
  
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "ie.components, org.ff4j.aop")
 public class AppConfiguration extends WebMvcConfigurerAdapter{
-	
-	
-	private static final String IMAGE_URI_PATH = "/images/**";
-	private static final String SCRIPTS_URI_PATH = "/scripts/**";
-	private static final String IMAGE_RESOURCES = "/resources/images/";
-	private static final String SCRIPTS_RESOURCES = "/resources/scripts/";
-	private static final int CACHE_EXPIRED_AFTER = 3000000;
-	
-	
-	
 	
 	
     @Bean
